@@ -5,24 +5,21 @@
 
 
 def bubble_sort(array)
-  array.map do |e|
-    if e > array[array.index(e)+1] # if e is bigger than next element
-      index_l = array[array.index(e)]
-      index_r = array[array.index(e)+1]
+  a_length = array.length - 1
+  i = 0
+  while array.index(array[i]) < a_length
+    puts "in while loop"
 
-      array[index_l], array[index_r] = array[index_r], array[index_l]
-      #array[array.index(e)], array[array.index(e)+1] = array[array.index(e)+1], array[array.index(e)]
-
+    if array[i] > array[i + 1] # if current element is bigger than next element
+      array[i], array[i+1] = array[i +1], array[i]
+      puts array[i]
+      i += 1
     end
-    puts "#{e} , #{array[array.index(e)+1]}"
   end
-
-
-
-
+  puts array.join(",")
 end
 
 
 
 
-bubble_sort([4,3,78,2,0,2])
+bubble_sort([3,2,1])
