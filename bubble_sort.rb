@@ -1,25 +1,33 @@
-#compare elements and swap if necessary
-#incorporate check to break iteration if index == index total - k(no iterations)
-#check if any swaps were made on each pass of the array.  If no swaps are made then sort is complete
-
-
-
 def bubble_sort(array)
-  a_length = array.length - 1
-  i = 0
-  while array.index(array[i]) < a_length
-    puts "in while loop"
+#swap_occurence = true
+round = 1
 
-    if array[i] > array[i + 1] # if current element is bigger than next element
-      array[i], array[i+1] = array[i +1], array[i]
-      puts array[i]
+
+  #while swap_occurence == true
+  loop do
+
+    i = 0
+
+
+    while i < array.length - round # while current array index is smaller than last index
+      if array[i] > array[i + 1] # if current element is bigger than next element
+        array[i], array[i+1] = array[i +1], array[i] # makes swap
+        #swap_occurence = true
+      else
+        #swap_occurence = false
+      end
       i += 1
     end
+
+    round += 1
+    puts array.join(",")
+    puts "i = #{i}, array length - round = #{array.length - round}"
+    break if round == array.length
   end
-  puts array.join(",")
+
+
 end
 
 
 
-
-bubble_sort([3,2,1])
+bubble_sort([5,4,3,2,1])
