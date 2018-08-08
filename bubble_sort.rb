@@ -30,10 +30,8 @@ round = 1
     i = 0
 
     while i < array.length - round
-      if array[i] > array[i+1]
-        if yield(array[i], array[i+1]) > 0 # problem here
+      if yield(array[i], array[i+1]) > 0
           array[i], array[i+1] = array[i+1], array[i]
-        end
       end
       i += 1
     end
@@ -42,10 +40,7 @@ round = 1
     puts array.join(",")
     break if round == array.length
   end
-
-
 end
-
 
 bubble_sort_by(["hello","hi","hey"]) do |left,right|
   left.length - right.length
